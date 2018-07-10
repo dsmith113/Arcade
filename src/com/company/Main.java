@@ -1,4 +1,5 @@
 package com.company;
+import java.io.IOException;
 import java.util.Scanner;
 public class Main {
 
@@ -8,13 +9,13 @@ public class Main {
     BattleShip bs = new BattleShip();
     Hangman h = new Hangman();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("Welcome to Tyler and Debi's Arcade!!");
         System.out.println();
         chooseAGame();}
 
 
-    public static void chooseAGame() {
+    public static void chooseAGame() throws IOException {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Choose your game!");

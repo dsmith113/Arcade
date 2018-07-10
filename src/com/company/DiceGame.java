@@ -1,10 +1,11 @@
 package com.company;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class DiceGame extends Main {
 
-        public static void TheDiceGame() {
+        public static void TheDiceGame()throws IOException {
             Scanner sc = new Scanner(System.in);
 
             System.out.println("You selected the Dice Game!");

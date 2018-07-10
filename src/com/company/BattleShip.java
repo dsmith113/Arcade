@@ -1,9 +1,10 @@
 package com.company;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class BattleShip extends Main {
-    public static void BattleShipGame() {
+    public static void BattleShipGame() throws IOException {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("You selected the BattleShip Game!");
