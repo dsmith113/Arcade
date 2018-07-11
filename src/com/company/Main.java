@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.Scanner;
 public class Main {
 
-    Questions20 q = new Questions20();
+   Questions20 q20 = new Questions20();
     DiceGame d = new DiceGame();
     BlackJack bj = new BlackJack();
     BattleShip bs = new BattleShip();
@@ -23,7 +23,7 @@ public class Main {
         System.out.println("2: Hangman");
         System.out.println("3: Adventure Game");
         System.out.println("4: Battleship");
-        System.out.println("5: Dice Game ");
+        System.out.println("5: Pig Dice Game ");
         System.out.println("Enter the corresponding number 1-5 to continue:");
         int chooseGame = sc.nextInt();
 

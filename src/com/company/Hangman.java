@@ -94,7 +94,7 @@ public class Hangman extends Main {
                             hangman();
                         }
                         else{
-                            System.exit(0);
+                            Main.main(null);
                         }
                     }
                     if(guessesLeft == 0){
@@ -105,7 +105,7 @@ public class Hangman extends Main {
                             hangman();
                         }
                         else{
-                            System.exit(0);
+                            Main.main(null);
                         }
                     }
                 }

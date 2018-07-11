@@ -3,7 +3,7 @@ package com.company;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class BlackJack extends Main {
+public class BlackJack  {
     public static void blackJackGame() throws IOException {
         Scanner sc = new Scanner(System.in);
 
@@ -12,7 +12,7 @@ public class BlackJack extends Main {
         String play = sc.nextLine();
 
         if (play.equals("yes")) { LetsPlayBlackJack(); }
-        else if (play.equals("no")) {chooseAGame(); }
+        else if (play.equals("no")) {Main.chooseAGame(); }
         else {
             System.out.println("Invalid response");
             blackJackGame();
@@ -20,14 +20,15 @@ public class BlackJack extends Main {
     }
 
 
-    public static void LetsPlayBlackJack(){
-            Betting c = new Betting();
+    public static void LetsPlayBlackJack()throws IOException{
+        Betting c = new Betting();
             c.setMoney(1000);
             run();
         }
 
-        static void run() {
-            Betting b = new Betting();
+        static void run() throws IOException{
+            System.out.println("run");
+        Betting b = new Betting();
             Scanner sc = new Scanner(System.in);
             double cCard1 = Card.cardValue();
             double cCard2 = Card.cardValue();
@@ -38,7 +39,7 @@ public class BlackJack extends Main {
             int money = b.getMoney();
             if(b.getMoney() == 0){
                 System.out.println("You have run out of money!");
-                System.exit(0);
+                Main.main(null);
             }
 
             System.out.println("##Welcome to Black Jack!##");

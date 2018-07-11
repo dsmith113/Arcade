@@ -1,8 +1,9 @@
 package com.company;
 
+import java.io.IOException;
 import java.util.Scanner;
 class Play extends BlackJack{
-    public static void playOn(double pTotal, double cTotal){
+    public static void playOn(double pTotal, double cTotal)throws IOException{
         Betting b = new Betting();
         Scanner sc = new Scanner(System.in);
         if(pTotal >= 22){
@@ -32,7 +33,7 @@ class Play extends BlackJack{
         }
     }
 
-    private static void playAgain(){
+    private static void playAgain()throws IOException {
         Betting b = new Betting();
         Scanner sc = new Scanner(System.in);
         System.out.println("Would you like to play again? 1 for yes, 2 for no.");
@@ -42,7 +43,7 @@ class Play extends BlackJack{
         }
         else if(choice == 2){
             System.out.println("Thanks for playing! You finished with $" + b.getMoney());
-            System.exit(0);
+            Main.main(null);
         }
         else{
             System.out.println("Sorry, that is not a valid response.");
@@ -50,7 +51,7 @@ class Play extends BlackJack{
         }
     }
 
-    private static void exitStrategy(double pTotal, double cTotal){
+    private static void exitStrategy(double pTotal, double cTotal)throws IOException{
         Betting b = new Betting();
         if (cTotal >= 22) {
             System.out.println("HAHA! The computer's total is: " + (int)cTotal);

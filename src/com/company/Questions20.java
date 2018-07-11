@@ -1,9 +1,11 @@
 package com.company;
 
+import java.io.IOException;
 import java.util.Scanner;
-    public class Questions20 extends Main {
 
-        public static void Game20() {
+public class Questions20 extends Main {
+
+        public static void Game20()throws IOException {
             Scanner sc = new Scanner(System.in);
 
             System.out.println("You selected the Adventure Game!");

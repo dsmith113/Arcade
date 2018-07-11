@@ -1,6 +1,6 @@
 package com.company;
 
-class Betting extends Main {
+class Betting extends BlackJack {
     private static int money;
     private static int wager;
 
