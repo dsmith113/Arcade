@@ -24,7 +24,8 @@ public class Main {
         System.out.println("3: Oregon Trail");
         System.out.println("4: Battleship");
         System.out.println("5: Pig Dice Game ");
-        System.out.println("Enter the corresponding number 1-5 to continue:");
+        System.out.println("6: Quit");
+        System.out.println("Enter the corresponding number 1-6 to continue:");
         String chooseGame = sc.nextLine();
 
         switch (chooseGame){
@@ -37,6 +38,8 @@ public class Main {
             case "4": BattleShip.BattleShipGame();
                 break;
             case "5": DiceGame.TheDiceGame();
+                break;
+            case "6": System.exit(0);
                 break;
             default:
                 System.out.println("Invalid option, Please Enter valid option");
