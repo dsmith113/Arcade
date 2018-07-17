@@ -8,11 +8,11 @@ public class BlackJack  {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("You selected the BlackJack Game!");
-        System.out.println("Are you sure you want to play? yes/no");
+        System.out.println("Are you sure you want to play? y/n");
         String play = sc.nextLine();
 
-        if (play.equals("yes")) { LetsPlayBlackJack(); }
-        else if (play.equals("no")) {Main.chooseAGame(); }
+        if (play.equals("y")) { LetsPlayBlackJack(); }
+        else if (play.equals("n")) {Main.chooseAGame(); }
         else {
             System.out.println("Invalid response");
             blackJackGame();

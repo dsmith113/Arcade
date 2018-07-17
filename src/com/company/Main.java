@@ -39,7 +39,7 @@ public class Main {
                 break;
             case "5": DiceGame.TheDiceGame();
                 break;
-            case "6": System.exit(0);
+            case "6": System.exit(03);
                 break;
             default:
                 System.out.println("Invalid option, Please Enter valid option");

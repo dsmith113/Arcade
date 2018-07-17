@@ -99,12 +99,12 @@ public class DicePlay extends DiceGame {
         Scanner sc = new Scanner(System.in);
         System.out.println();
         System.out.println("Game Over");
-        System.out.println("Would you like to play again? yes/no");
+        System.out.println("Would you like to play again? y/n");
         String play = sc.nextLine();
 
-        if (play.equals("yes")) {
+        if (play.equals("y")) {
             LetsPlayDiceGame();
-        } else if (play.equals("no")) {
+        } else if (play.equals("n")) {
             chooseAGame();
         } else {
             System.out.println("Invalid response");

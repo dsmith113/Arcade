@@ -9,11 +9,11 @@ public class DiceGame extends Main {
             Scanner sc = new Scanner(System.in);
 
             System.out.println("You selected the Pig Dice Game!");
-            System.out.println("Are you sure you want to play? yes/no");
+            System.out.println("Are you sure you want to play? y/n");
             String play = sc.nextLine();
 
-            if (play.equals("yes")) { LetsPlayDiceGame(); }
-            else if (play.equals("no")) { chooseAGame(); }
+            if (play.equals("y")) { LetsPlayDiceGame(); }
+            else if (play.equals("n")) { chooseAGame(); }
             else {
                 System.out.println("Invalid response");
                 TheDiceGame();

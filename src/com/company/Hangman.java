@@ -12,11 +12,11 @@ public class Hangman extends Main {
             Scanner sc = new Scanner(System.in);
 
             System.out.println("You selected the Hangman Game!");
-            System.out.println("Are you sure you want to play? yes/no");
+            System.out.println("Are you sure you want to play? y/n");
             String play = sc.nextLine();
 
-            if (play.equals("yes")){ LetsPlayHangman(); }
-            else if (play.equals("no")) { chooseAGame();}
+            if (play.equals("y")){ LetsPlayHangman(); }
+            else if (play.equals("n")) { chooseAGame();}
             else {
                 System.out.println("Invalid response");
                 HangmanGame();
@@ -26,7 +26,7 @@ public class Hangman extends Main {
 
 
 
-            public static void LetsPlayHangman() throws IOException {
+            public static void LetsPlayHangman()  throws IOException {
                 hangman();
             }
 

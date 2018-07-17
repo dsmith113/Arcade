@@ -43,6 +43,7 @@ class Play extends BlackJack{
         }
         else if(choice == 2){
             System.out.println("Thanks for playing! You finished with $" + b.getMoney());
+            System.out.println();
             Main.main(null);
         }
         else{

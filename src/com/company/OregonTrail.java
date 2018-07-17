@@ -11,11 +11,11 @@ public class OregonTrail {
             Scanner sc = new Scanner(System.in);
 
             System.out.println("You selected the Oregon Trail Game!");
-            System.out.println("Are you sure you want to play? yes/no");
+            System.out.println("Are you sure you want to play? y/n");
             String play = sc.nextLine();
 
-            if (play.equals("yes")) { LetsOregonTrail(); }
-            else if (play.equals("no")) { Main.chooseAGame(); }
+            if (play.equals("y")) { LetsOregonTrail(); }
+            else if (play.equals("n")) { Main.chooseAGame(); }
             else {
                 System.out.println("Invalid response");
                 oregonTrail();
