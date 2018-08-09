@@ -13,9 +13,8 @@ class Betting extends BlackJack {
         return wager;
     }
 
-    public int setMoney(int money) {
+    public void setMoney(int money) {
         Betting.money = money;
-        return money;
     }
 
     public int setWager(int wager) {

@@ -5,25 +5,33 @@ import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class OregonTrail {
+class OregonTrail {
 
         public static void oregonTrail()throws IOException {
             Scanner sc = new Scanner(System.in);
 
             System.out.println("You selected the Oregon Trail Game!");
-            System.out.println("Are you sure you want to play? y/n");
-            String play = sc.nextLine();
+            System.out.println("Are you sure you want to play? y for yes, n for no");
+            String play = sc.nextLine().toLowerCase();
 
-            if (play.equals("y")) { LetsOregonTrail(); }
-            else if (play.equals("n")) { Main.chooseAGame(); }
-            else {
-                System.out.println("Invalid response");
-                oregonTrail();
+            switch (play) {
+                case "y":
+                case "yes":
+                    LetsOregonTrail();
+                    break;
+                case "n":
+                case "no":
+                    Main.chooseAGame();
+                    break;
+                default:
+                    System.out.println( "Invalid response" );
+                    oregonTrail();
+                    break;
             }
         }
 
 
-        public static void LetsOregonTrail()throws IOException{
+        private static void LetsOregonTrail()throws IOException{
             Scanner sc = new Scanner(System.in);
 
             System.out.println("Are you ready for an Oregon Trail?!");
@@ -37,17 +45,18 @@ public class OregonTrail {
             runAdventure(name);
         }
 
-        public static void runAdventure(String name)throws IOException{
+        private static void runAdventure(String name)throws IOException{
             Scanner sc = new Scanner(System.in);
             Life l = new Life();
             System.out.println(name + ", let's get started! When would you like to leave? press the corresponding #");
             System.out.println("1 March");
             System.out.println("2 April");
             System.out.println("3 May");
-            String month = sc.nextLine();
+            String month = sc.nextLine().toLowerCase();
 
             switch (month){
                 case "1":
+                case "march":
                     int life = l.getLife();
                     System.out.println("You're on the trail, but ran into a snow storm");
                     System.out.println("Your new life is " + life + "%");
@@ -55,11 +64,13 @@ public class OregonTrail {
                     riverCrossingKansas();
                     break;
                 case "2":
+                case "april":
                     System.out.println("You have made it out of town safe");
                     System.out.println();
                     riverCrossingKansas();
                     break;
                 case "3":
+                case "may":
                     life = l.getLifeLite();
                     System.out.println("You have started out a little too late");
                     System.out.println("Your new life is " + life + "%");
@@ -75,22 +86,26 @@ public class OregonTrail {
         }
 
 
-public static void riverCrossingKansas()throws IOException{
+private static void riverCrossingKansas()throws IOException{
     Scanner sc = new Scanner(System.in);
     Life l = new Life();
     System.out.println("You have made it to the Kansas river... How would you like to cross the river?");
     System.out.println("1 Ford the river");
     System.out.println("2 Caulk your wagon");
-    System.out.println("3 Take the fairy");
-    String cross = sc.nextLine();
+    System.out.println("3 Take the ferry");
+    String cross = sc.nextLine().toLowerCase();
 
     switch (cross){
         case "1":
+        case "ford":
+        case "ford the river":
             System.out.println("You have safely made it over the river");
             System.out.println();
             hunting();
             break;
         case "2":
+        case "caulk":
+        case "caulk our wagon":
             int life = l.getLife();
             System.out.println("There was trouble crossing the river");
             System.out.println("Your new life is " + life + "%");
@@ -98,8 +113,10 @@ public static void riverCrossingKansas()throws IOException{
             hunting();
             break;
         case "3":
+        case "ferry":
+        case "take the ferry":
             life = l.getLifeLite();
-            System.out.println("You had to pay to take the fairy, you may not have enough money to make it to Oregon");
+            System.out.println("You had to pay to take the ferry, you may not have enough money to make it to Oregon");
             System.out.println("Your new life is " + life + "%");
             System.out.println();
             hunting();
@@ -113,10 +130,11 @@ public static void riverCrossingKansas()throws IOException{
 }
 
 
-         public static void hunting ()throws IOException {
+         private static void hunting()throws IOException {
              Scanner sc = new Scanner(System.in);
              Life l = new Life();
-             System.out.println("The trip across Nebraska is very long... You will need to hunt for food!");System.out.println("1 Go on one big Hunt for lots of food");
+             System.out.println("The trip across Nebraska is very long... You will need to hunt for food!");
+             System.out.println("1 Go on one big Hunt for lots of food");
             System.out.println("2 Go on several little hunts along the way so wagon is not to heavy");
             System.out.println("3 Risk it and keep going to stay ahead of weather");
             String cross = sc.nextLine();
@@ -152,7 +170,7 @@ public static void riverCrossingKansas()throws IOException{
 }
 
 
-        public static void mountainsWY ()throws IOException {
+        private static void mountainsWY()throws IOException {
             Scanner sc = new Scanner(System.in);
             Life l = new Life();
             System.out.println("You made it across Nebraska and after your short rest at Chimney Rock, you");
@@ -192,7 +210,7 @@ public static void riverCrossingKansas()throws IOException{
             }
         }
 
-        public static void idaho() throws IOException {
+        private static void idaho() throws IOException {
             Scanner sc = new Scanner(System.in);
             Life l = new Life();
             System.out.println("You made it over the mountains and now you need to get through Idaho, You are almost there!");
@@ -219,7 +237,7 @@ public static void riverCrossingKansas()throws IOException{
                     break;
                 case "3":
                     life = l.getLife();
-                    System.out.println("You were attacked by hostages since you were not in the group! But they only stole some of your supplys. You lucked out!");
+                    System.out.println("You were attacked by hostages since you were not in the group! But they only stole some of your supplies. You lucked out!");
                     System.out.println("Your new life is " + life + "%");
                     System.out.println();
                     madeItOregon();
@@ -233,7 +251,7 @@ public static void riverCrossingKansas()throws IOException{
 
         }
 
-        public static void madeItOregon ()throws IOException{
+        private static void madeItOregon()throws IOException{
             Scanner sc = new Scanner(System.in);
             Life l = new Life();
             System.out.println("Wow, you've came so far!! You are sooooo close and soooooo tired after this long journey. What will you do next?");
@@ -273,26 +291,32 @@ public static void riverCrossingKansas()throws IOException{
 
         }
 
-        public static void exitStrategy()throws IOException {
+        static void exitStrategy()throws IOException {
             System.out.println("Sorry you ran out of life, You did not make it to Oregon.");
             playAgain();
         }
 
-            public static void playAgain() throws IOException {
+            private static void playAgain() throws IOException {
             Scanner sc = new Scanner(System.in);
             System.out.println();
             System.out.println("Game Over");
-            System.out.println("Would you like to play again? yes/no");
+            System.out.println("Would you like to play again? y for yes, n for no");
             String play = sc.nextLine();
 
-            if (play.equals("yes")) {
-                LetsOregonTrail();
-            } else if (play.equals("no")) {
-                Main.chooseAGame();
-            } else {
-                System.out.println("Invalid response");
-                playAgain();
-            }
+                switch (play) {
+                    case "yes":
+                    case "y":
+                        LetsOregonTrail();
+                        break;
+                    case "no":
+                    case "n":
+                        Main.chooseAGame();
+                        break;
+                    default:
+                        System.out.println( "Invalid response" );
+                        playAgain();
+                        break;
+                }
             }
 
 }

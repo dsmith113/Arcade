@@ -3,24 +3,32 @@ package com.company;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class BlackJack  {
+class BlackJack  {
     public static void blackJackGame() throws IOException {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("You selected the BlackJack Game!");
-        System.out.println("Are you sure you want to play? y/n");
-        String play = sc.nextLine();
+        System.out.println("Are you sure you want to play? y for yes, n for no");
+        String play = sc.nextLine().toLowerCase();
 
-        if (play.equals("y")) { LetsPlayBlackJack(); }
-        else if (play.equals("n")) {Main.chooseAGame(); }
-        else {
-            System.out.println("Invalid response");
-            blackJackGame();
+        switch (play) {
+            case "y":
+            case "yes":
+                LetsPlayBlackJack();
+                break;
+            case "n":
+            case "no":
+                Main.chooseAGame();
+                break;
+            default:
+                System.out.println( "Invalid response" );
+                blackJackGame();
+                break;
         }
     }
 
 
-    public static void LetsPlayBlackJack()throws IOException{
+    private static void LetsPlayBlackJack()throws IOException{
         Betting c = new Betting();
             c.setMoney(1000);
             run();

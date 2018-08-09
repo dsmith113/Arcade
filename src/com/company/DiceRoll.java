@@ -1,7 +1,7 @@
 package com.company;
 import java.util.Random;
 
-public class DiceRoll extends DiceGame {
+class DiceRoll extends DiceGame {
 
     public static int diceRoll(){
         Random rand = new Random();

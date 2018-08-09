@@ -2,7 +2,7 @@ package com.company;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class DicePlay extends DiceGame {
+class DicePlay extends DiceGame {
     DiceRoll dr = new DiceRoll();
 
 
@@ -26,29 +26,35 @@ public class DicePlay extends DiceGame {
                 playerScore += dice;
                 System.out.println("Your total score would be: " + (playerTotal+playerScore));
                 System.out.println("Enter \"yes\" to Roll Again or Enter \"no\" to stay.");
-                input = sc.nextLine();
-                    if (input.equals("yes")){ playDice(playerScore, playerTotal, compTotal, compScore);
-                    }
-                    else if (input.equals("no")) {
-                System.out.println("Your new total is : " + (playerTotal+playerScore));
-                playerTotal += playerScore;
-                playerScore = 0;
+                input = sc.nextLine().toLowerCase();
+                switch (input) {
+                    case "yes":
+                    case "y":
+                        playDice( playerScore, playerTotal, compTotal, compScore );
+                        break;
+                    case "no":
+                    case "n":
+                        System.out.println( "Your new total is : " + (playerTotal + playerScore) );
+                        playerTotal += playerScore;
+                        playerScore = 0;
                         System.out.println();
-                    if (playerTotal>=100){
-                        exitStrategy(playerTotal,compTotal );
-                    }
-                compPlayDice(compTotal ,compScore, playerTotal, playerScore);}
-                    else {
-                        System.out.println("invalid response, automatically roll again");
-                        playDice(playerScore, playerTotal, compTotal, compScore);
-                    }
+                        if (playerTotal >= 100) {
+                            exitStrategy( playerTotal, compTotal );
+                        }
+                        compPlayDice( compTotal, compScore, playerTotal, playerScore );
+                        break;
+                    default:
+                        System.out.println( "invalid response, automatically roll again" );
+                        playDice( playerScore, playerTotal, compTotal, compScore );
+                        break;
+                }
             }
         }while (playerTotal < 100); }
         exitStrategy(playerTotal, compTotal);
     }
 
 
-    public static void compPlayDice(int compTotal, int compScore, int playerTotal, int playerScore)throws IOException {
+    private static void compPlayDice(int compTotal, int compScore, int playerTotal, int playerScore)throws IOException {
         int compRoundScore = 0;
 
         while (compTotal < 100){
@@ -81,7 +87,7 @@ public class DicePlay extends DiceGame {
 
 
 
-    public static void exitStrategy(int playerTotal, int compTotal) throws IOException {
+    private static void exitStrategy(int playerTotal, int compTotal) throws IOException {
 
         if (playerTotal >= 100){
             System.out.println("You WIN! You scored 100 before the computer!");
@@ -95,20 +101,26 @@ public class DicePlay extends DiceGame {
 
 
 
-    public static void playAgain() throws IOException {
+    private static void playAgain() throws IOException {
         Scanner sc = new Scanner(System.in);
         System.out.println();
         System.out.println("Game Over");
-        System.out.println("Would you like to play again? y/n");
-        String play = sc.nextLine();
+        System.out.println("Would you like to play again? y for yes, n for no");
+        String play = sc.nextLine().toLowerCase();
 
-        if (play.equals("y")) {
-            LetsPlayDiceGame();
-        } else if (play.equals("n")) {
-            chooseAGame();
-        } else {
-            System.out.println("Invalid response");
-            playAgain();
+        switch (play) {
+            case "y":
+            case "yes":
+                LetsPlayDiceGame();
+                break;
+            case "n":
+            case "no":
+                chooseAGame();
+                break;
+            default:
+                System.out.println( "Invalid response" );
+                playAgain();
+                break;
         }
     }
 }

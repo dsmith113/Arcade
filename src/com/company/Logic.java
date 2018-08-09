@@ -3,23 +3,23 @@ package com.company;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Logic extends BattleShip {
-    public static void shoot(int[] shoot) throws IOException {
+class Logic extends BattleShip {
+    public static void shoot(int[] shoot) {
         Scanner input = new Scanner( System.in );
 
-        System.out.print( "Select a row (1-9): " );
+        System.out.print( "Select a row (1-5): " );
         shoot[0] = input.nextInt();
         shoot[0]--;
 
-        System.out.print( "Select a column(1-9): " );
+        System.out.print( "Select a column(1-5): " );
         shoot[1] = input.nextInt();
         shoot[1]--;
 
     }
-    public static boolean hit(int[] shoot, int[][] ships) throws IOException {
+    public static boolean hit(int[] shoot, int[][] ships) {
 
-        for (int ship = 0; ship < ships.length; ship++) {
-            if (shoot[0] == ships[ship][0] && shoot[1] == ships[ship][1]) {
+        for (int[] ship1 : ships) {
+            if (shoot[0] == ship1[0] && shoot[1] == ship1[1]) {
                 System.out.printf( "You hit a ship located in (%d,%d)\n", shoot[0] + 1, shoot[1] + 1 );
                 return true;
             }
@@ -27,13 +27,13 @@ public class Logic extends BattleShip {
         return false;
     }
 
-    public static void hint(int[] shoot, int[][] ships, int attempt) throws IOException {
+    public static void hint(int[] shoot, int[][] ships, int attempt) {
         int row = 0, column = 0;
 
-        for (int line = 0; line < ships.length; line++) {
-            if (ships[line][0] == shoot[0])
+        for (int[] ship : ships) {
+            if (ship[0] == shoot[0])
                 row++;
-            if (ships[line][1] == shoot[1])
+            if (ship[1] == shoot[1])
                 column++;
         }
 

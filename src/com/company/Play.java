@@ -15,13 +15,15 @@ class Play extends BlackJack{
         }
 
         System.out.println("Your total is: " + (int)pTotal + " Would you like to hit(1), or stay(2)? ");
-        int choice = sc.nextInt();
+        String choice = sc.nextLine().toLowerCase();
         switch(choice) {
-            case 1:
+            case "1":
+            case "hit":
                 pTotal += Card.cardValue();
                 playOn(pTotal, cTotal);
 
-            case 2:
+            case "2":
+            case "stay":
                 while (cTotal < 16) {
                     cTotal += Card.cardValue();
                 }
@@ -36,19 +38,23 @@ class Play extends BlackJack{
     private static void playAgain()throws IOException {
         Betting b = new Betting();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Would you like to play again? 1 for yes, 2 for no.");
-        int choice = sc.nextInt();
-        if(choice == 1){
-            run();
-        }
-        else if(choice == 2){
-            System.out.println("Thanks for playing! You finished with $" + b.getMoney());
-            System.out.println();
-            Main.main(null);
-        }
-        else{
-            System.out.println("Sorry, that is not a valid response.");
-            playAgain();
+        System.out.println("Would you like to play again? y for yes, n for no.");
+        String choice = sc.nextLine().toLowerCase();
+        switch (choice) {
+            case "y":
+            case "yes":
+                run();
+                break;
+            case "n":
+            case "no":
+                System.out.println( "Thanks for playing! You finished with $" + b.getMoney() );
+                System.out.println();
+                Main.main( null );
+                break;
+            default:
+                System.out.println( "Sorry, that is not a valid response." );
+                playAgain();
+                break;
         }
     }
 

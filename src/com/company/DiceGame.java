@@ -3,25 +3,33 @@ package com.company;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class DiceGame extends Main {
+class DiceGame extends Main {
 
         public static void TheDiceGame()throws IOException {
             Scanner sc = new Scanner(System.in);
 
             System.out.println("You selected the Pig Dice Game!");
-            System.out.println("Are you sure you want to play? y/n");
-            String play = sc.nextLine();
+            System.out.println("Are you sure you want to play? y for yes, n for no");
+            String play = sc.nextLine().toLowerCase();
 
-            if (play.equals("y")) { LetsPlayDiceGame(); }
-            else if (play.equals("n")) { chooseAGame(); }
-            else {
-                System.out.println("Invalid response");
-                TheDiceGame();
+            switch (play) {
+                case "y":
+                case "yes":
+                    LetsPlayDiceGame();
+                    break;
+                case "n":
+                case "no":
+                    chooseAGame();
+                    break;
+                default:
+                    System.out.println( "Invalid response" );
+                    TheDiceGame();
+                    break;
             }
         }
 
 
-        public static void LetsPlayDiceGame()throws IOException{
+        static void LetsPlayDiceGame()throws IOException{
 
             System.out.println("Welcome to Pig Dice- Here are the Rules to the game!");
             System.out.println("You will play against the computer. Players will take turns rolling a 6-sided dice");

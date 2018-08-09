@@ -1,7 +1,7 @@
 package com.company;
 import java.io.IOException;
 import java.util.Scanner;
-public class Main {
+class Main {
 
    OregonTrail ot = new OregonTrail();
     DiceGame d = new DiceGame();
@@ -39,7 +39,7 @@ public class Main {
                 break;
             case "5": DiceGame.TheDiceGame();
                 break;
-            case "6": System.exit(03);
+            case "6": System.exit( 3 );
                 break;
             default:
                 System.out.println("Invalid option, Please Enter valid option");

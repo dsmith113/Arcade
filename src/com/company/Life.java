@@ -3,7 +3,7 @@ package com.company;
 import java.io.IOException;
 import java.util.Random;
 
-public class Life extends OregonTrail{
+class Life extends OregonTrail{
 
     private static int life;
 
@@ -24,9 +24,8 @@ public class Life extends OregonTrail{
         return life;
     }
 
-    public int setLife(int life) throws IOException{
+    public void setLife(int life) {
         Life.life = life;
-        return life;
     }
 
 
